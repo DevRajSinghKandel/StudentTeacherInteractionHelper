@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Complete_Student_Service.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Complete_Student_Service"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="left" Background="{StaticResource SystemControlChromeLowAcrylicWindowBrush}">
+                <InkCanvas x:Name="Appl" Height="500" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top"></InkCanvas>
+                <InkToolbar x:Name="Inku" TargetInkCanvas="{x:Bind Appl}"></InkToolbar>
+                <Button x:Name="Currenot" Style="{StaticResource AccentButtonStyle}" Height="40">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Save"></SymbolIcon>
+                            <TextBlock Text="Save Answer"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Analysis" Style="{StaticResource AccentButtonStyle}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Refresh"></SymbolIcon>
+                                <TextBlock Text="Use AI to recognize"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <TextBlock x:Name="Tappu"></TextBlock>
+
+                  
+                </StackPanel>
+
+                <Button x:Name="Mergere" Content="Merge Questions and Answers" Style="{StaticResource AccentButtonStyle}">
+                    
+                </Button>
+                <Button x:Name="Clearer" Content="Clear all data"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="300" BorderBrush="White" BorderThickness="3">
+                <ListView x:Name="QuestionList" Header="QuestionList" Width="300" Height="680">
+
+                </ListView>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="Questioner" Width="250" PlaceholderText="Enter your question"></TextBox>
+                    <Button x:Name="AddQuestion" Style="{StaticResource AccentButtonStyle}" Width="50">
+                        <Button.Content>
+                            <SymbolIcon Symbol="Add"></SymbolIcon>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="800" BorderBrush="White" BorderThickness="3">
+                <ListView ItemsSource="{Binding}" x:Name="Taru" Header="Merged Result">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel>
+                                <TextBlock Text="{Binding question}"></TextBlock>
+                                <Image Source="{Binding hamper}" Height="50" Width="50"></Image>
+                            </StackPanel>
+                        </DataTemplate>
+                        
+                    
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
